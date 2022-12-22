@@ -1,0 +1,1376 @@
+{
+  "_format": "hh-sol-cache-2",
+  "files": {
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/19-AlienCodex.sol": {
+      "lastModificationDate": 1671692542615,
+      "contentHash": "e09bc62f0f70b00524f296776964fa1a",
+      "sourceName": "contracts/19-AlienCodex.sol",
+      "solcConfig": {
+        "version": "0.5.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.5.0"
+      ],
+      "artifacts": [
+        "AlienCodex",
+        "Ownable"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/1-Fallback.sol": {
+      "lastModificationDate": 1671692542613,
+      "contentHash": "9f1d07c64d3c3ac5811fdd0aca2616ea",
+      "sourceName": "contracts/1-Fallback.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Fallback"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/3-CoinFlip.sol": {
+      "lastModificationDate": 1671692542616,
+      "contentHash": "8b117592cd806387a25bb2c3f0687fa1",
+      "sourceName": "contracts/3-CoinFlip.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "CoinFlip"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/20-Denial.sol": {
+      "lastModificationDate": 1671692542616,
+      "contentHash": "aebe9fd16ed8de98176dafba511a97e4",
+      "sourceName": "contracts/20-Denial.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Denial"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/2-Fallout.sol": {
+      "lastModificationDate": 1671692542615,
+      "contentHash": "aec76d03974cf85826f46aba3069e0dd",
+      "sourceName": "contracts/2-Fallout.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Fallout"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/17-Recovery.sol": {
+      "lastModificationDate": 1671692542615,
+      "contentHash": "1aae56237c0db7cdb21f1530d88316a1",
+      "sourceName": "contracts/17-Recovery.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Recovery",
+        "SimpleToken"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/15-NaughtCoin.sol": {
+      "lastModificationDate": 1671692542614,
+      "contentHash": "7b8169a6d786e4466b95dfdf614d45d0",
+      "sourceName": "contracts/15-NaughtCoin.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/token/ERC20/ERC20.sol"
+      ],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "NaughtCoin"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/13-GatekeeperOne.sol": {
+      "lastModificationDate": 1671692542614,
+      "contentHash": "301d4fe2219c3585876d77c90b3063a3",
+      "sourceName": "contracts/13-GatekeeperOne.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "GatekeeperOne"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/10-ReEntrancy.sol": {
+      "lastModificationDate": 1671692542613,
+      "contentHash": "1500ea7ca1861479b55ce6dfe56279f9",
+      "sourceName": "contracts/10-ReEntrancy.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Reentrance"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/11-Elevator.sol": {
+      "lastModificationDate": 1671692542614,
+      "contentHash": "a769648e35620ad731332e0f79373ede",
+      "sourceName": "contracts/11-Elevator.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Building",
+        "Elevator"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/12-Privacy.sol": {
+      "lastModificationDate": 1671692542614,
+      "contentHash": "1c296dd14fed2f52e4b96d86318d6a20",
+      "sourceName": "contracts/12-Privacy.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Privacy"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/14-GatekeeperTwo.sol": {
+      "lastModificationDate": 1671692542614,
+      "contentHash": "c4ac23e4b49138318f062cb93652453b",
+      "sourceName": "contracts/14-GatekeeperTwo.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "GatekeeperTwo"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/16-Preservation.sol": {
+      "lastModificationDate": 1671692542615,
+      "contentHash": "577993cec67202dcbefe7a9bdb442ca1",
+      "sourceName": "contracts/16-Preservation.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "LibraryContract",
+        "Preservation"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/18-MagicNumber.sol": {
+      "lastModificationDate": 1671692542615,
+      "contentHash": "8e9f238f39e5103c4c00fe167b7a5199",
+      "sourceName": "contracts/18-MagicNumber.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "MagicNum"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/21-Shop.sol": {
+      "lastModificationDate": 1671692542616,
+      "contentHash": "e8d4be13ba094c76825eb68f4d1b3e7d",
+      "sourceName": "contracts/21-Shop.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Buyer",
+        "Shop"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/4-Telephone.sol": {
+      "lastModificationDate": 1671692542616,
+      "contentHash": "0c1d2527e7fe97b6abf419b8579cf7cb",
+      "sourceName": "contracts/4-Telephone.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Telephone"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/5-Token.sol": {
+      "lastModificationDate": 1671692542617,
+      "contentHash": "49da4f341e8aec52461cb905aa58e52e",
+      "sourceName": "contracts/5-Token.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Token"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/6-Delegation.sol": {
+      "lastModificationDate": 1671692542617,
+      "contentHash": "bd52101c409fe77397af989ac26855c3",
+      "sourceName": "contracts/6-Delegation.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Delegate",
+        "Delegation"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/7-Force.sol": {
+      "lastModificationDate": 1671692542617,
+      "contentHash": "0ad7efa3a48011ad7319f5977fbb7a2b",
+      "sourceName": "contracts/7-Force.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Force"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/8-Vault.sol": {
+      "lastModificationDate": 1671692542617,
+      "contentHash": "290a5b0c0f84b33cfd00b41bea9fa1bb",
+      "sourceName": "contracts/8-Vault.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "Vault"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/9-King.sol": {
+      "lastModificationDate": 1671692542617,
+      "contentHash": "93579323916d973396777d80c9da69f8",
+      "sourceName": "contracts/9-King.sol",
+      "solcConfig": {
+        "version": "0.6.0",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.6.0"
+      ],
+      "artifacts": [
+        "King"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/0-Hello.sol": {
+      "lastModificationDate": 1671692542613,
+      "contentHash": "f236032c98619d00679e06055f88f2b7",
+      "sourceName": "contracts/0-Hello.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "Hello"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/node_modules/@openzeppelin/contracts/math/SafeMath.sol": {
+      "lastModificationDate": 1671692651451,
+      "contentHash": "4d29a22b28b7ec0e89c3cdf1c5e72b83",
+      "sourceName": "@openzeppelin/contracts/math/SafeMath.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "SafeMath"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/node_modules/@openzeppelin/contracts/token/ERC20/ERC20.sol": {
+      "lastModificationDate": 1671692651297,
+      "contentHash": "1d93743f6ca9d2ecf9b3c26718faf610",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/ERC20.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "../../GSN/Context.sol",
+        "./IERC20.sol",
+        "../../math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "ERC20"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/node_modules/@openzeppelin/contracts/GSN/Context.sol": {
+      "lastModificationDate": 1671692651245,
+      "contentHash": "2adbd82f6d055a4751566d4671512b03",
+      "sourceName": "@openzeppelin/contracts/GSN/Context.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "Context"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/node_modules/@openzeppelin/contracts/token/ERC20/IERC20.sol": {
+      "lastModificationDate": 1671692651407,
+      "contentHash": "e0a41531d159d3a32f84b7a3ecf9fabb",
+      "sourceName": "@openzeppelin/contracts/token/ERC20/IERC20.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.6.0 <0.8.0"
+      ],
+      "artifacts": [
+        "IERC20"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/14-GatekeeperTwoAttacker.sol": {
+      "lastModificationDate": 1671692542614,
+      "contentHash": "49c1f111c514342fb7a7e70d4f058c30",
+      "sourceName": "contracts/14-GatekeeperTwoAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/math/SafeMath.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "GatekeeperTwoAttacker",
+        "IGatekeeperTwo"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/13-GatekeeperOneAttacker.sol": {
+      "lastModificationDate": 1671692542614,
+      "contentHash": "b863a1eb395a3ff8e15bb289f94c1f38",
+      "sourceName": "contracts/13-GatekeeperOneAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "@openzeppelin/contracts/math/SafeMath.sol",
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "GatekeeperOneAttacker",
+        "IGatekeeperOne"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/node_modules/hardhat/console.sol": {
+      "lastModificationDate": 1671692651972,
+      "contentHash": "c20b2460755f312099ccd61427237ded",
+      "sourceName": "hardhat/console.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        ">=0.4.22 <0.8.0"
+      ],
+      "artifacts": [
+        "console"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/10-ReEntrancyAttacker.sol": {
+      "lastModificationDate": 1671692542614,
+      "contentHash": "8173324249ba026a7bbc5b218eb819ab",
+      "sourceName": "contracts/10-ReEntrancyAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [
+        "hardhat/console.sol"
+      ],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "IReentrance",
+        "ReentranceAttacker"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/11-ElevatorAttacker.sol": {
+      "lastModificationDate": 1671692542614,
+      "contentHash": "228f72bfbe8f4587ac22576659673a86",
+      "sourceName": "contracts/11-ElevatorAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "ElevatorAttacker",
+        "IElevator"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/16-PreservationAttacker.sol": {
+      "lastModificationDate": 1671692542615,
+      "contentHash": "599e6160ff466e5134d4c7b07733233f",
+      "sourceName": "contracts/16-PreservationAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "IPreservation",
+        "PreservationAttacker",
+        "PreservationAttackerLib"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/18-MagicNumberAttacker.sol": {
+      "lastModificationDate": 1671692542615,
+      "contentHash": "9ff6b8c42d2dce9b34235c440388b51c",
+      "sourceName": "contracts/18-MagicNumberAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "IMagicNum",
+        "MagicNumAttacker"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/20-DenialAttacker.sol": {
+      "lastModificationDate": 1671692542616,
+      "contentHash": "889a18e225afc1941210e8ba3eda77cd",
+      "sourceName": "contracts/20-DenialAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "DenialAttacker",
+        "IDenial"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/21-ShopAttacker.sol": {
+      "lastModificationDate": 1671692542616,
+      "contentHash": "b506ee5ac5ca97b6996ad2bf8dd61e28",
+      "sourceName": "contracts/21-ShopAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "IShop",
+        "ShopAttacker"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/3-CoinFlipAttacker.sol": {
+      "lastModificationDate": 1671692542616,
+      "contentHash": "99b8964f32b9bbfa35e4deddbd2acacd",
+      "sourceName": "contracts/3-CoinFlipAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "CoinFlipAttacker",
+        "ICoinFlipChallenge"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/4-TelephoneAttacker.sol": {
+      "lastModificationDate": 1671692542616,
+      "contentHash": "bf9077f10af8f493da475bb296e038ab",
+      "sourceName": "contracts/4-TelephoneAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "ITelephone",
+        "TelephoneAttacker"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/7-ForceAttacker.sol": {
+      "lastModificationDate": 1671692542617,
+      "contentHash": "9f81381128fe3e04a39ec130f82911ea",
+      "sourceName": "contracts/7-ForceAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "ForceAttacker"
+      ]
+    },
+    "/Users/wangchao/study/code/CTF/ethernaut/contracts/9-KingAttacker.sol": {
+      "lastModificationDate": 1671692542617,
+      "contentHash": "821037697b76312c9a8436c04c713e7b",
+      "sourceName": "contracts/9-KingAttacker.sol",
+      "solcConfig": {
+        "version": "0.7.3",
+        "settings": {
+          "optimizer": {
+            "enabled": false,
+            "runs": 200
+          },
+          "outputSelection": {
+            "*": {
+              "*": [
+                "abi",
+                "evm.bytecode",
+                "evm.deployedBytecode",
+                "evm.methodIdentifiers"
+              ],
+              "": [
+                "ast"
+              ]
+            }
+          }
+        }
+      },
+      "imports": [],
+      "versionPragmas": [
+        "^0.7.3"
+      ],
+      "artifacts": [
+        "IKing",
+        "KingAttacker"
+      ]
+    }
+  }
+}

@@ -1,0 +1,39 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "Delegation",
+  "sourceName": "contracts/6-Delegation.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "_delegateAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "stateMutability": "nonpayable",
+      "type": "fallback"
+    },
+    {
+      "inputs": [],
+      "name": "owner",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506040516102483803806102488339818101604052602081101561003357600080fd5b810190808051906020019092919050505080600160006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff160217905550336000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff16021790555050610173806100d56000396000f3fe608060405234801561001057600080fd5b506004361061002f5760003560e01c80638da5cb5b146100ce57610030565b5b60006060600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16600036604051808383808284378083019250505092505050600060405180830381855af49150503d80600081146100c0576040519150601f19603f3d011682016040523d82523d6000602084013e6100c5565b606091505b50915091505050005b6100d6610118565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea26469706673582212207393be1e722a7ddeb5352e5452acd4d5d32b8d788fdb40d682ddbfbb94e6e55f64736f6c63430006000033",
+  "deployedBytecode": "0x608060405234801561001057600080fd5b506004361061002f5760003560e01c80638da5cb5b146100ce57610030565b5b60006060600160009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16600036604051808383808284378083019250505092505050600060405180830381855af49150503d80600081146100c0576040519150601f19603f3d011682016040523d82523d6000602084013e6100c5565b606091505b50915091505050005b6100d6610118565b604051808273ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b6000809054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea26469706673582212207393be1e722a7ddeb5352e5452acd4d5d32b8d788fdb40d682ddbfbb94e6e55f64736f6c63430006000033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

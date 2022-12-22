@@ -1,0 +1,22 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "ForceAttacker",
+  "sourceName": "contracts/7-ForceAttacker.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address payable",
+          "name": "target",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "payable",
+      "type": "constructor"
+    }
+  ],
+  "bytecode": "0x6080604052604051605a380380605a83398181016040526020811015602357600080fd5b810190808051906020019092919050505060003411604057600080fd5b8073ffffffffffffffffffffffffffffffffffffffff16fffe",
+  "deployedBytecode": "0x6080604052600080fdfea264697066735822122016b897f7d7a51119201d64e550ffe59b351c12193969faf3d2e39386c71f83a664736f6c63430007030033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}

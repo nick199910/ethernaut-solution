@@ -1,0 +1,46 @@
+{
+  "_format": "hh-sol-artifact-1",
+  "contractName": "DenialAttacker",
+  "sourceName": "contracts/20-DenialAttacker.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "challengeAddress",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "constructor"
+    },
+    {
+      "stateMutability": "payable",
+      "type": "fallback"
+    },
+    {
+      "inputs": [],
+      "name": "attack",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "challenge",
+      "outputs": [
+        {
+          "internalType": "contract IDenial",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x608060405234801561001057600080fd5b506040516102213803806102218339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505061018d806100946000396000f3fe60806040526004361061002d5760003560e01c80639e5faafc14610038578063d2ef73981461004f5761002e565b5b600061003657fe5b005b34801561004457600080fd5b5061004d610090565b005b34801561005b57600080fd5b50610064610133565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16634e1c5914306040518263ffffffff1660e01b8152600401808273ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561011957600080fd5b505af115801561012d573d6000803e3d6000fd5b50505050565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea2646970667358221220acb874777b9289f0b52d4428f0ebb8498b7278121883566b902b136e73b6030d64736f6c63430007030033",
+  "deployedBytecode": "0x60806040526004361061002d5760003560e01c80639e5faafc14610038578063d2ef73981461004f5761002e565b5b600061003657fe5b005b34801561004457600080fd5b5061004d610090565b005b34801561005b57600080fd5b50610064610133565b604051808273ffffffffffffffffffffffffffffffffffffffff16815260200191505060405180910390f35b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16634e1c5914306040518263ffffffff1660e01b8152600401808273ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801561011957600080fd5b505af115801561012d573d6000803e3d6000fd5b50505050565b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff168156fea2646970667358221220acb874777b9289f0b52d4428f0ebb8498b7278121883566b902b136e73b6030d64736f6c63430007030033",
+  "linkReferences": {},
+  "deployedLinkReferences": {}
+}
