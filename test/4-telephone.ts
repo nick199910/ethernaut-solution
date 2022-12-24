@@ -14,7 +14,7 @@ before(async () => {
     [eoa] = accounts;
     const challengeFactory = await ethers.getContractFactory(`Telephone`);
     const challengeAddress = await createChallenge(
-        `0x0b6F6CE4BCfB70525A31454292017F640C10c768`
+        `0x1ca9f1c518ec5681C2B7F97c7385C0164c3A22Fe`
     );
     challenge = await challengeFactory.attach(challengeAddress);
 
@@ -24,7 +24,13 @@ before(async () => {
     attacker = await attackerFactory.deploy(challenge.address);
 });
 
-it("solves the challenge", async function () {});
+it("solves the challenge", async function () {
+    let tx = await attacker.attack({
+        gasPrice: ethers.utils.parseUnits("3", "gwei"),
+        gasLimit: 2100000,
+    });
+    await tx.wait();
+});
 
 after(async () => {
     expect(await submitLevel(challenge.address), "level not solved").to.be.true;

